@@ -1,0 +1,5 @@
+/node_modules
+/logs
+/test
+/assets
+/webpack.config.js

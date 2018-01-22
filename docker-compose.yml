@@ -1,0 +1,16 @@
+version: '2.1'
+networks:
+  default_network:
+services:
+  ################################################
+  client:
+    build:
+      context: ./client
+    volumes:
+      - ./client:/usr/src/app:rw
+    environment:
+      NODE_ENV: ${NODE_ENV}
+    networks:
+      - default_network
+    ports:
+      - '3020:80'
