@@ -10,6 +10,7 @@ services:
       - ./client:/usr/src/app:rw
     environment:
       NODE_ENV: ${NODE_ENV}
+      SESSION_SECRET: ${SESSION_SECRET}
     networks:
       - default_network
     ports:

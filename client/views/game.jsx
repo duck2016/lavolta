@@ -19,7 +19,7 @@ export default class extends Component {
         }
     };
     render() {
-        const { manifest } = this.props;
+        const { manifest, user } = this.props;
         return (
             <html>
                 <head>
@@ -29,9 +29,10 @@ export default class extends Component {
                 </head>
                 <body>
                     <div id="root">
-                        <div>welcome</div>
-                        <a href="/game">let's go!</a>
+                        <div>welcome {user.userId}</div>
+                        <a href="/logout">logout</a>
                     </div>
+                    <script dangerouslySetInnerHTML={{ __html: `window.__userId = '${user.userId}';` }}/>
                     <script src={manifest['main.js']}/>
                 </body>
             </html>

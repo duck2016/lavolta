@@ -1,5 +1,8 @@
 {
   "extends": "standard",
+  "globals": {
+    "Phaser": true
+  },
   "rules": {
     "no-extra-semi": 0,
     "semi": 0,
