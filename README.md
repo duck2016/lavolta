@@ -18,3 +18,9 @@ localhost:3020
 ```
 bash entry.sh down
 ```
+
+
+## todo
+
+- запилить нормально сокеты вместо эмита в animationFrame
+- добавить healthcheck для rabbitmq

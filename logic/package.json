@@ -1,0 +1,23 @@
+{
+  "name": "logic",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "pm2 start --no-daemon pm2.config.js",
+    "installdev": "npm install --only=dev --quiet --no-optional",
+    "lint": "eslint --ignore-path .eslintignore ./"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^4.11.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "mocha": "^2.5.3"
+  },
+  "dependencies": {
+    "amqplib": "^0.5.2",
+    "lokijs": "^1.5.1"
+  }
+}

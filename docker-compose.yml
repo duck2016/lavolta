@@ -2,6 +2,16 @@ version: '2.1'
 networks:
   default_network:
 services:
+  ###############################################
+  rabbitmq:
+    image: rabbitmq:latest
+    hostname: rabbitmq
+    environment:
+      RABBITMQ_ERLANG_COOKIE: ${RABBITMQ_ERLANG_COOKIE}
+    networks:
+      - default_network
+    ports:
+      - '5672:5672'
   ################################################
   client:
     build:
@@ -11,7 +21,24 @@ services:
     environment:
       NODE_ENV: ${NODE_ENV}
       SESSION_SECRET: ${SESSION_SECRET}
+      AMQP_HOST: ${AMQP_HOST}
     networks:
       - default_network
     ports:
       - '3020:80'
+    depends_on:
+      - rabbitmq
+  ################################################
+  logic:
+    tty: true
+    build:
+      context: ./logic
+    volumes:
+      - ./logic:/usr/src/app:rw
+    environment:
+      NODE_ENV: ${NODE_ENV}
+      AMQP_HOST: ${AMQP_HOST}
+    networks:
+      - default_network
+    depends_on:
+      - rabbitmq
